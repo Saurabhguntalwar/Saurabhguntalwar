@@ -1,0 +1,26 @@
+create a new instance on EC2 and check availability zone
+Go to EBS and select volume and go create volume and select a volume type and reduce a size GiB 10 they can use on free tier and create a volume and go availability zone select and select existing instance zone and add tag key: name value:my- volume and create volume 
+Attach the EBS VOLUME to ec2 instance select volume and right click go to attach volume click on instance and choose ec2 instance on which you attach volume 
+see volume is sucessfuly attach ec2 
+create new partion on ebs volume 
+Go to instance and click exiting take ssh on mobaxtrem 
+login to root user 
+sudo su 
+lsblk (check hardisk partition )
+create a directory for mount 
+mkdir /tmp/images/
+create partition 
+fdisk /dev/xvdf
+type m -- help
+type n: for new partition 
+type p and enter 2 time 
+w : write a table and exit
+for verfying type lsblk 
+for mount use mount /dev/xvdf1 /tmp/images/
+verfying lsblk
+vim /etc/fstab
+entery in last 
+/dev/xvdf1 /tmp/images xfs default 0 0 and save wq: and exit
+type cmd df -hT
+type cmd mount -a 
+and check cmd lsblk for verfying
