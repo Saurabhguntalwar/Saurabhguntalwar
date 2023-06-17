@@ -1,0 +1,18 @@
+  in s3  
+ create bucket ,give a any name -bucket145
+  go in IAM and there create policy 
+ click create policy
+ select any service like ec2 -give rea and write permission
+ add arn ,select bucket name, click add arn
+policy name  read-write1 click create policy
+
+ Again create policy 
+ select same service like - ec2 paste bucket name 
+ click add arn ,then nex
+ policy name read only click create policy
+
+
+ now create user  - select attach policy - select customer managed -select readwrite1 policy then next
+then click create user ,user is created
+
+ follow this same process for create a one more user but there give only read only
