@@ -1,0 +1,13 @@
+1. in EC2
+2. click launch template 
+3. select os image 
+4. instance type t2.micro
+5. select keypair 
+6. select subnet
+7.then security group select existing 
+8. click launch template
+9. then select template name  goto action  select launch instance form template  go bydefault  
+10. now click launch instance
+11. select the instance  goto action  select image and templates  select create image
+12. image name AMItemplate1  go bydefault  click create image
+13. now, goto AMIs 
