@@ -1,0 +1,19 @@
+1. In EC2
+2. select instance 
+3. click launch instance 
+4. name: demo-server > select existing key pair( if not then create new keypair)
+5. allow http traffic from internet in firewall
+6. click advanced details 
+7. go below to user data 
+
+add userdata : 
+	#!/bin/bash
+	sudo yum update 
+	sudo yum install httpd -y
+	sudo systemctl start httpd
+	sudo systemctl enable httpd
+	sudo echo "<h1> This is my Homepage "$HOSTNAME"</h1>" > /var/www/html/index.html
+ click launch instance > wait until status check: 2/2 check pa
+ copy public ip 
+ paste in the browser 
+
