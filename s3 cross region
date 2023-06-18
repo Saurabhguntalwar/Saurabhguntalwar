@@ -1,0 +1,36 @@
+in  s3 
+ click create bucket 
+ bucket name: bucket1-sample
+ region mumbai 
+  ACL enable 
+  block all public access 
+ i acknowledge… 
+ bucket versioning enable 
+ create bucket. 
+now create another bucket: s3 
+ bucket name: bucket2-sample 
+ region sydney 
+ click ACL enable 
+  block all public access 
+  i acknowledge… 
+ bucket versioning enable click create bucket. 
+
+   bucket1 data want to replicate 
+ goto management 
+ scroll down 
+  create replication rule
+ rule name replication-rule12 
+ source bucket:  apply to all objects in the bucket 
+ in destination  browse s3 : and select sydney bucket bucket2
+ in IAM role  select create new role
+ then save 
+replicate existing objects = yes 
+click submit 
+ in complete report destination: give path mumbai(bucket1) 
+  save
+
+ upload file in mumbai(bucket1) 
+
+ in permissions select  grant public-read access 
+  upload 
+ now, check bucket 2 sydney the object is replicated successfully.
