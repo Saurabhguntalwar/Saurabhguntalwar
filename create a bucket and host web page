@@ -1,0 +1,30 @@
+in  s3
+ click create bucket
+ bucket name:buckethosting12  block public access(give full access)
+5. object ownership - ACL enabled 
+6. click create bucket 
+7. goto browser 
+8. download css free sample template
+9. click upload 
+10. click add files 
+11. click add folder add one by one folder 
+12. click upload 
+13. goto properties 
+14. go to the last 
+15. static website hosting 
+16. click edit 
+17.click Enable 
+18. index document- type index.html 
+19. click save changes 
+20. go below in static website 
+21. bucket website endpoint copy url  
+22. go above server access logging  click edit  target bucket  give your bucket name 
+save changes
+23. goto ACL 
+ click edit 
+ select list and read permission in everyone section
+ select all object 
+ actions 
+ make public using ACL 
+ paste in browser 
+ website is hosted succefully.
