@@ -1,0 +1,30 @@
+	CREATE VPC-1 – NAME – AWS SITE (IP: 10.1.0.0/16)
+	CREATE VPC-2- NAME- OFFICE SITE (IP: 10.2.0.0/16)
+	CREATE SUBNET -1 (IP: 10.1.1.0/24)
+	CREATE SUBNET -2 (IP: 10.2.2.0/24)
+	CREATE INTERNET GATEWAY = ATTACHED VPC-1-AWS SITE
+	GOING TO ROUTE TABALE – ATTACHED INTERNET GATWAY –VPC1-AWS SITE
+	LAUNCH INSTANCE –VPC-1-PUB-WITH-ICMP ALL -(OFFICE SITE IP: 10.1.0.0/16)
+	LAUNCH INSTANCE –VPC-2-PVT-WITH-ICMP ALL -(AWS SITE IP: 10.2.0.0/16)
+	LAUNCH INSTANCE-WITH-LINUX-2-AMI – AWS-PUB
+	LAUNCH INSTANCE- WITH-LINUX-2-AMI-OFFICE-PVT
+	GOING TO VPN -> CREATE CUSTOMER GATEWAY -> PUT AWS SITE INSTANCE PUBLIC IP -> AND CREATE 
+	GOING TO VIRTUAL PRIVATE GATWAY -> CREATE VIRTUAL PRIVATE GATWAY -> OFFICE SITE VPC
+	CREATE VPN CONNECTION -> ATTACHED VPN -> VIRTUAL GATWAY  OFFICE SITE SELECT  CUSTOMER ID  AWS SITE SELECT GIVEN STATIC IP AWS SITE (IP: 10.1.0.0/16)
+	GOING TO VPN -> SELECTE OPTION DOWNLOAD CONFIGURE -> SEARCH OPENSWAN AND DOWNLOAD
+	GOING TO PUBLIC INSTANCE -> YUM UPDATE –Y -> SUDO YUM INSTALL OPENSWAN –Y	
+	sudo vim /etc/sysctl.conf ->  paste 3 line 
+a.	net.ipv4.ip_forward = 1
+b.	net.ipv4.conf.default.rp_filter = 0
+c.	net.ipv4.conf.default.accept_source_route = 0   -> SAVE CHANGES 
+	sudo sysctl –p
+	sudo systemctl restart network
+	sudo vim /etc/ipsec.conf  -> open and uncomment last line
+	create new file  sudo vim /etc/ipsec.d/aws.conf -> paste com tunnel 1 block and delete auth-esp option - given ip left subnet 10.1.0.0/16 right subnet ip 10.2.0.0/16
+	create new file sudo vim /etc/ipsec.d/aws.secrets and paste configur line number -5 -> save 
+	sudo systemctl restart ipsec.service 
+	sudo systemctl restart network
+	going to aws -> route table -> select office route table -> route propagation -> enable -> save
+	sudo chmod 600 key-name 
+	ssh –i key-name ec2-user@private-ip
+	ping ---- private ip
